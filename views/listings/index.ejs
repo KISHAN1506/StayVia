@@ -1,5 +1,47 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
+<style>
+  .listing-card {
+    transition: transform 0.25s ease !important;
+    border: none !important;
+    background-color: transparent !important;
+  }
+  
+  .listing-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .listing-card img {
+    border-radius: 1rem !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.25s ease !important;
+  }
+
+  .listing-card:hover img {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .listing-link {
+    text-decoration: none !important;
+  }
+
+  .listing-card .card-body {
+    padding: 0.6rem 0.2rem !important;
+  }
+
+  .listing-card .card-text b {
+    color: #222222;
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .listing-card .card-text {
+    color: #555555;
+    font-size: 0.9rem;
+  }
+</style>
+
     <!--
 Directly added in Navbar
 <form method="GET" action="/listings/new">
@@ -23,12 +65,14 @@ Directly added in Navbar
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
                         <p class="card-text">
-                            <b><%= listing.title %></b>
+                            <b>
+                                <%= listing.title %>
+                            </b>
                             <br>
                             &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : "N/A" %> / night
                         </p>
                     </div>
                 </div>
             </a>
-        <% } %>
+            <% } %>
     </div>

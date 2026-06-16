@@ -1,21 +1,158 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="fa-solid fa-compass-drafting"></i></a>
+<style>
+  .custom-navbar {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 0.75rem 0 !important;
+    transition: all 0.3s ease;
+    height: auto !important;
+    min-height: 5rem;
+  }
+
+  .custom-navbar .navbar-brand {
+    font-weight: 800;
+    color: #de3250 !important;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: opacity 0.2s ease;
+  }
+
+  .custom-navbar .navbar-brand:hover {
+    opacity: 0.9;
+  }
+
+  .custom-navbar .navbar-brand i {
+    color: #de3250;
+    font-size: 1.8rem;
+  }
+
+  .custom-navbar .nav-link {
+    color: #484848 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem !important;
+    border-radius: 2rem;
+    transition: all 0.25s ease;
+    margin: 0 0.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .custom-navbar .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: #222222 !important;
+  }
+
+  .custom-navbar .btn-signup {
+    color: #000000 !important;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(222, 50, 79, 0.233);
+    border: none !important;
+  }
+
+  .custom-navbar .btn-signup:hover {
+    background-color: #ff385c;
+    color: #ffffff !important;
+    box-shadow: 0 6px 15px rgba(156, 36, 56, 0.3);
+  }
+
+  .custom-navbar .btn-login {
+    border: 1px solid rgba(0, 0, 0, 0.15) !important;
+    margin-left: 0.5rem;
+  }
+
+  .custom-navbar .btn-login:hover {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(0, 0, 0, 0.3) !important;
+    color: #222222 !important;
+  }
+
+  .custom-navbar .btn-logout {
+    border: 1px solid rgba(222, 50, 80, 0.3) !important;
+    color: #de3250 !important;
+  }
+
+  .custom-navbar .btn-logout:hover {
+    background-color: rgba(222, 50, 80, 0.05) !important;
+    color: #de3250 !important;
+  }
+
+  .custom-navbar .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+  }
+
+  .custom-navbar .navbar-toggler:focus {
+    box-shadow: none;
+  }
+
+  .custom-navbar .navbar-toggler:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  @media (max-width: 767.98px) {
+    .custom-navbar {
+      padding: 0.75rem 1rem !important;
+    }
+
+    .custom-navbar .navbar-collapse {
+      background: #ffffff;
+      border-radius: 1.25rem;
+      padding: 1rem;
+      margin-top: 0.75rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .custom-navbar .navbar-nav {
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .custom-navbar .nav-link {
+      width: 100%;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem !important;
+    }
+
+    .custom-navbar .btn-login, .custom-navbar .btn-signup, .custom-navbar .btn-logout {
+      margin-left: 0 !important;
+      justify-content: center;
+    }
+  }
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top custom-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="fa-solid fa-compass-drafting"></i>
+            <span>StayVia</span>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="/listings">Explore</a>
+                <a class="nav-link" href="/listings">
+                    <i class="fa-solid fa-compass"></i> Explore
+                </a>
             </div>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/listings/new">Add New Listing</a>
+            <div class="navbar-nav ms-auto align-items-md-center">
+                <a class="nav-link me-md-2" href="/listings/new">
+                    <i class="fa-solid fa-circle-plus"></i> Add New Listing
+                </a>
                 <% if(!currUser) { %>
-                    <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-                    <a class="nav-link" href="/login"><b>Login</b></a>
+                    <a class="nav-link btn-signup" href="/signup">Sign Up</a>
+                    <a class="nav-link btn-login" href="/login">Login</a>
                 <% } %>
                 <% if(currUser) { %>
-                    <a class="nav-link" href="/logout"><b>Logout</b></a>
+                    <a class="nav-link btn-logout" href="/logout">Logout</a>
                 <% } %>
             </div>
         </div>

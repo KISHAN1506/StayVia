@@ -1,24 +1,123 @@
 <% layout("/layouts/boilerplate.ejs") %>
 
-<div class="row mt-3">
-    <h1 class="col-6 offset-3">SignUp for StayVia</h1>
-    <div class="col-6 offset-3">
-        <form action="/signup" method="post" novalidate class="needs-validation">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input id="title" type="text" name="username" id="username" class="form-control" required>
-                <div class="valid-feedback">Username Looks good!!</div>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input id="title" type="email" name="email" id="email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input id="title" type="password" name="password" id="password" class="form-control" required>
-            </div>
+<style>
+  .form-container {
+    max-width: 480px;
+    margin: 3rem auto;
+  }
 
-            <button class="btn btn-success">SignUp</button>
-        </form>
+  .form-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    padding: 2.5rem;
+  }
+
+  .form-title {
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 0.35rem;
+    text-align: center;
+  }
+
+  .form-subtitle {
+    color: #717171;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .form-label {
+    font-weight: 600;
+    color: #222222;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-control {
+    border-radius: 0.5rem !important;
+    border: 1px solid #cccccc !important;
+    padding: 0.65rem 0.85rem !important;
+    font-size: 0.95rem !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .form-control:focus {
+    border-color: #de3250 !important;
+    box-shadow: 0 0 0 0.2rem rgba(222, 50, 80, 0.15) !important;
+  }
+
+  .btn-submit-form {
+    background: #de3250 !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: 0.5rem !important;
+    transition: all 0.2s ease !important;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .btn-submit-form:hover {
+    background: #ff385c !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(222, 50, 80, 0.2);
+  }
+
+  .form-footer-text {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #717171;
+    margin-bottom: 0;
+  }
+
+  .form-footer-text a {
+    color: #de3250;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .form-footer-text a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="row">
+    <div class="col-12 form-container">
+        <div class="form-card">
+            <h2 class="form-title">Join StayVia</h2>
+            <p class="form-subtitle">Create an account to explore amazing places.</p>
+            
+            <form action="/signup" method="post" novalidate class="needs-validation">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Choose a username" required>
+                    <div class="valid-feedback">Username looks good!!</div>
+                    <div class="invalid-feedback">Please choose a username.</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter email" required>
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Create a password" required>
+                    <div class="invalid-feedback">Please enter a password.</div>
+                </div>
+
+                <button class="btn btn-submit-form">Sign Up</button>
+            </form>
+            
+            <p class="form-footer-text">
+                Already have an account? <a href="/login">Login</a>
+            </p>
+        </div>
     </div>
 </div>

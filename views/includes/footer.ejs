@@ -1,14 +1,119 @@
-<footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-            <i class="fa-brands fa-square-facebook"></i>
-            <i class="fa-brands fa-square-instagram"></i>
-            <i class="fa-brands fa-square-linkedin"></i>
-        </div>
-        <div class="f-info-brand">&copy; Stayvia Private Limited</div>
-        <div class="f-info-links">
+<style>
+  .custom-footer {
+    background-color: #ffffff !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    padding: 2.5rem 0 !important;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #de3250;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-brand:hover {
+    opacity: 0.9;
+  }
+
+  .footer-brand i {
+    font-size: 1.4rem;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+
+  .footer-links a {
+    color: #555555;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: #de3250;
+  }
+
+  .footer-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .footer-socials a {
+    color: #717171;
+    font-size: 1.25rem;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+
+  .footer-socials a:hover {
+    color: #ffffff;
+    background-color: #de3250;
+    transform: translateY(-2px);
+  }
+
+  .footer-copyright {
+    font-size: 0.85rem;
+    color: #717171;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+</style>
+
+<footer class="custom-footer">
+    <div class="container footer-content">
+        <a href="/" class="footer-brand">
+            <i class="fa-solid fa-compass-drafting"></i>
+            <span>Stayvia</span>
+        </a>
+        
+        <div class="footer-links">
+            <a href="/listings">Explore</a>
             <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms </a>
+            <a href="/terms">Terms</a>
+        </div>
+        
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/kishan-agarwal15/" target="_blank" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/kishan_agarwalll/" target="_blank" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        
+        <div class="footer-copyright">
+            &copy; <%= new Date().getFullYear() %> Stayvia Private Limited. All rights reserved.
         </div>
     </div>
 </footer>
