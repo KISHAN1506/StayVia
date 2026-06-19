@@ -95,6 +95,10 @@ app.use((req,res,next)=>{
     next(); //if next not called so we'll be stuck at this middleware itself
 })
 
+app.get("/terms", (req, res) => {
+    res.render("terms");
+});
+
 // app.get("/fakeUser",async (req,res)=>{
 //     let fakeUser = new User({
 //         email : "Kishan@gmail.com",
