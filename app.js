@@ -92,6 +92,7 @@ app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     res.locals.currUser = req.user;
+    res.locals.showListingSearch = req.path === "/listings";
     next(); //if next not called so we'll be stuck at this middleware itself
 })
 

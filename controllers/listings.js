@@ -1,8 +1,18 @@
 const Listing = require("../models/listing");
 
 module.exports.index = async (req, res) => {
+  const search = req.query.search ? req.query.search.trim().toLowerCase() : "";
   const allListings = await Listing.find({});
-  res.render("listings/index.ejs", { allListings });
+
+  const filteredListings = search
+    ? allListings.filter((listing) => {
+        return [listing.title, listing.location, listing.country].some((field) => {
+          return field && field.toLowerCase().includes(search);
+        });
+      })
+    : allListings;
+
+  res.render("listings/index.ejs", { allListings: filteredListings, search });
 };
 
 module.exports.renderNewForm = (req, res) => {
